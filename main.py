@@ -4,6 +4,7 @@ dotenv.load_dotenv()
 
 from crewai import Crew, Agent, Task
 from crewai.project import CrewBase, agent, task, crew
+from tools import count_letters
 
 @CrewBase
 class TranslaterCrew:
@@ -11,6 +12,13 @@ class TranslaterCrew:
     def translator_agent(self):
         return Agent(
             config=self.agents_config["translator_agent"],
+        )
+    
+    @agent
+    def counter_agent(self):
+        return Agent(
+            config=self.agents_config["counter_agent"],
+            tools=[count_letters],
         )
 
     @task
@@ -23,6 +31,12 @@ class TranslaterCrew:
     def retranslate_task(self):
         return Task(
             config=self.tasks_config["retranslate_task"],
+        )
+    
+    @task
+    def count_task(self):
+        return Task(
+            config=self.tasks_config["count_task"],
         )
     
     @crew
