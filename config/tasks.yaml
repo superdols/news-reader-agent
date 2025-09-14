@@ -1,0 +1,13 @@
+translate_task:
+  description: >
+    Translate {sentence} from English to Japanese without making mistakes.
+  expected_output: >
+    A well formatted translation from English to Japanese.
+  agent: translator_agent
+
+retranslate_task:
+  description: >
+    Translate {sentence} from Japanese to Korean without making mistakes.
+  expected_output: >
+    A well formatted translation from ItaliJapanesean to Korean.
+  agent: translator_agent
